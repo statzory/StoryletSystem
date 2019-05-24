@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Editor" t="Include">
+          <e p="StoryletEditor.cs" t="Include" />
+          <e p="StringIntDictionaryPropertyDrawer.cs" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="CoinObserver.cs" t="Include" />
+          <e p="Deck.cs" t="Include" />
+          <e p="Storylet.cs" t="Include" />
+          <e p="StoryManager.cs" t="Include" />
+          <e p="StoryState.cs" t="Include" />
+          <e p="StoryUI.cs" t="Include" />
+          <e p="Utility.cs" t="Include" />
+        </e>
+        <e p="SerializableDictionary" t="Include">
+          <e p="Editor" t="Include">
+            <e p="SerializableDictionaryPropertyDrawer.cs" t="Include" />
+          </e>
+          <e p="SerializableDictionary.cs" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="StoryletSystem.sln" t="IncludeFlat" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2019.1/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.1/resharper-host/local/Transient/ReSharperHost/v191/SolutionCaches/_StoryletSystem.193394198.00" t="ExcludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
+  </component>
+</project>
