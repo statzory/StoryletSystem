@@ -6,6 +6,7 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Editor" t="Include">
+          <e p="DeckEditor.cs" t="Include" />
           <e p="StoryletEditor.cs" t="Include" />
           <e p="StringIntDictionaryPropertyDrawer.cs" t="Include" />
         </e>

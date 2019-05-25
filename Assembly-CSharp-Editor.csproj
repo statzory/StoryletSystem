@@ -57,6 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Editor\DeckEditor.cs" />
     <Compile Include="Assets\Editor\StoryletEditor.cs" />
     <Compile Include="Assets\Editor\StringIntDictionaryPropertyDrawer.cs" />
     <Compile Include="Assets\SerializableDictionary\Editor\SerializableDictionaryPropertyDrawer.cs" />
