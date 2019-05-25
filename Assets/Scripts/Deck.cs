@@ -8,13 +8,14 @@ using Random = System.Random;
 public class Deck : ScriptableObject
 {
    public List<Storylet> Storylets;
+   
+   public List<Storylet> ValidStorylets => Storylets.Where(x => x.MeetsPreconditions()).ToList();
 
    public Storylet DrawStorylet()
    {
-      var validStorylets = Storylets.Where(x => x.MeetsPreconditions()).ToArray();
-      var weights = validStorylets.Select(x => x.Weight).ToArray();
+      var weights = ValidStorylets.Select(x => x.Weight).ToArray();
       var selectedIndex = RandomUtility.WeightedRandom(weights);
 
-      return validStorylets[selectedIndex];
+      return ValidStorylets[selectedIndex];
    }
 }

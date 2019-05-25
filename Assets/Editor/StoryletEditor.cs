@@ -61,7 +61,7 @@ public class StoryletEditor : Editor
         EditorGUILayout.PropertyField(StoryProperty);
         EditorGUILayout.PropertyField(WeightProperty);
         EditorGUILayout.PropertyField(RepeatableProperty);
-        EditorGUILayout.PropertyField(PreconditionsProperty, true);
+        ShowPreconditions();
         EditorGUILayout.PropertyField(ContentProperty,GUILayout.Height(100));
         EditorGUILayout.PropertyField(ChoicesProperty, true);
 
@@ -86,5 +86,40 @@ public class StoryletEditor : Editor
         EditorUtility.CopySerialized (storylet.CardArt.texture, tex);
 
         return tex;
+    }
+
+    private void ShowPreconditions()
+    {
+        EditorGUILayout.PropertyField(PreconditionsProperty);
+
+        ++EditorGUI.indentLevel;
+
+        if (PreconditionsProperty.isExpanded)
+        {
+            for (var i = 0; i < PreconditionsProperty.arraySize; ++i)
+            {
+                var precondition = PreconditionsProperty.GetArrayElementAtIndex(i);
+
+                EditorGUILayout.BeginHorizontal();
+                
+                EditorGUILayout.PropertyField(precondition.FindPropertyRelative("Key"), GUIContent.none);
+                EditorGUILayout.PropertyField(precondition.FindPropertyRelative("Type"), GUIContent.none);
+                EditorGUILayout.PropertyField(precondition.FindPropertyRelative("Value"), GUIContent.none);
+
+                if(GUILayout.Button(new GUIContent("-", "remove element")))
+                {
+                    PreconditionsProperty.DeleteArrayElementAtIndex(i);
+                }
+                
+                EditorGUILayout.EndHorizontal();
+            }
+            
+            if(GUILayout.Button(new GUIContent("+", "add element")))
+            {
+                PreconditionsProperty.InsertArrayElementAtIndex(PreconditionsProperty.arraySize);
+            }
+        }
+
+        --EditorGUI.indentLevel;
     }
 }
