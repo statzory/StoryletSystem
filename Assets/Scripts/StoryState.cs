@@ -2,13 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 
 [Serializable]
 public class StringIntDictionary : SerializableDictionary<string, int> {}
 
-[CreateAssetMenu(fileName = "New StoryState", menuName = "Story Story", order = 51)]
+[CreateAssetMenu(fileName = "New StoryState", menuName = "StoryState", order = 51)]
 public class StoryState : ScriptableObject
 {
    [SerializeField]
@@ -42,6 +43,7 @@ public class StoryState : ScriptableObject
          if (!qualities.ContainsKey(key))
          {
             Debug.LogError("Cannot get quality because quality doesn't exist");
+            return -1;
          }
 
          return qualities[key];
@@ -52,6 +54,7 @@ public class StoryState : ScriptableObject
          if (!qualities.ContainsKey(key))
          {
             Debug.LogError("Cannot set quality because quality doesn't exist");
+            return;
          }
 
          if (value != qualities[key])
@@ -76,11 +79,23 @@ public class StoryState : ScriptableObject
 
    public void SubscribeToQuality(string quality, QualityUpdatedHandler handler)
    {
+      if (!qualities.ContainsKey(quality))
+      {
+         Debug.LogError("Quality not found");
+         return;
+      }
+      
       observers.Add(new QualityObserver(quality, handler));
    }
 
    public void UnsubscribeFromQuality(QualityUpdatedHandler handler)
    {
+      if (observers.All(x => x.Handler != handler))
+      {
+         Debug.LogError("Observer not found");
+         return;
+      }
+
       observers = observers.Except(observers.Where(x => x.Handler == handler)).ToList();
    }
 }

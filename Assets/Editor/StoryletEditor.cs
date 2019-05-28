@@ -12,7 +12,6 @@ public class StoryletEditor : Editor
     private static GUILayoutOption _removeButtonWidth = GUILayout.Width(20);
     
     private SerializedProperty _storyProperty;
-    private SerializedProperty _weightProperty;
     private SerializedProperty _repeatableProperty;
     private SerializedProperty _preconditionsProperty;
     private SerializedProperty _contentProperty;
@@ -21,7 +20,6 @@ public class StoryletEditor : Editor
     private void OnEnable()
     {
         _storyProperty = serializedObject.FindProperty("story");
-        _weightProperty = serializedObject.FindProperty("Weight");
         _repeatableProperty = serializedObject.FindProperty("Repeatable");
         _preconditionsProperty = serializedObject.FindProperty("Preconditions");
         _contentProperty = serializedObject.FindProperty("content");
@@ -60,7 +58,6 @@ public class StoryletEditor : Editor
         
         storylet.CardArt = (Sprite) EditorGUILayout.ObjectField(new GUIContent("Card Art"), storylet.CardArt, typeof(Sprite), false);
         EditorGUILayout.PropertyField(_storyProperty);
-        EditorGUILayout.PropertyField(_weightProperty);
         EditorGUILayout.PropertyField(_repeatableProperty);
         ShowConditions(_preconditionsProperty);
         EditorGUILayout.PropertyField(_contentProperty,_contentBoxHeight);

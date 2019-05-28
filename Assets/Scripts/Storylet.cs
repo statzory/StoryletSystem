@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net.Mime;
 using System.Text.RegularExpressions;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 
 [CreateAssetMenu(fileName = "New Storylet", menuName = "Storylet", order = 51)]
@@ -80,9 +75,7 @@ public class Storylet : ScriptableObject
     private StoryState story;
     
     public Sprite CardArt;
-    
-    public float Weight = 1.0f;
-    
+
     public bool Repeatable;
     
     public Precondition[] Preconditions;
